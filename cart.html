@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="cart-page">
+
+    <h1 class="cart-title">Your Cart 🛒</h1>
+
+    <!-- CART ITEMS -->
+    <div id="cartItems" class="cart-container"></div>
+
+    <!-- FOOTER CONTROLS -->
+    <div class="cart-footer">
+        <h3 id="cartTotal" class="cart-total"></h3>
+
+        <button class="main-btn" onclick="setBuyAll()">BUY ALL</button>
+        <button class="main-btn" onclick="setSellAll()">SELL ALL</button>
+
+        <br><br>
+
+        <button class="main-btn" onclick="placeOrder()">Place Order</button>
+        <button class="main-btn" onclick="clearCart()">Clear Cart</button>
+        <button class="main-btn" onclick="goBack()">Back to Shop</button>
+    </div>
+
+    <script>
+        /* ================= CART DATA ================= */
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let cartMode = "buy";
+
+        /* ================= RENDER CART ================= */
+        function renderCart() {
+            const cartItemsDiv = document.getElementById("cartItems");
+            const cartTotalDiv = document.getElementById("cartTotal");
+
+            cartItemsDiv.innerHTML = "";
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML =
+                    "<p style='text-align:center;'>Your cart is empty</p>";
+                cartTotalDiv.innerText = "";
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                const unitPrice =
+                    cartMode === "sell" ? item.price * 0.5 : item.price;
+
+                total += unitPrice * item.quantity;
+
+                cartItemsDiv.innerHTML += `
+            <div class="cart-item">
+                <div class="cart-left">
+                    <img src="${item.image || './default.png'}"
+                         class="cart-img"
+                         alt="${item.name}">
+                    <div>
+                        <div class="cart-name">${item.name}</div>
+                        <div class="cart-price">
+                            ₹${unitPrice} × ${item.quantity}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cart-actions">
+                    <button onclick="decreaseQty(${index})">−</button>
+                    <button onclick="increaseQty(${index})">+</button>
+                    <button class="btn-remove" onclick="removeItem(${index})">
+                        x
+                    </button>
+
+                </div>
+            </div>
+        `;
+            });
+
+            cartTotalDiv.innerText =
+                "Mode: " + cartMode.toUpperCase() + " | Total: ₹" + total;
+        }
+
+        /* ================= BUY / SELL ================= */
+        function setBuyAll() {
+            cartMode = "buy";
+            renderCart();
+        }
+
+        function setSellAll() {
+            cartMode = "sell";
+            renderCart();
+        }
+
+        /* ================= QUANTITY ================= */
+        function increaseQty(index) {
+            cart[index].quantity++;
+            saveCart();
+        }
+
+        function decreaseQty(index) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+            } else {
+                cart.splice(index, 1);
+            }
+            saveCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            saveCart();
+        }
+
+        /* ================= ORDER ================= */
+        function placeOrder() {
+            if (cart.length === 0) {
+                alert("Cart is empty");
+                return;
+            }
+            alert("Order placed successfully (" + cartMode.toUpperCase() + ")");
+            clearCart();
+        }
+
+        /* ================= HELPERS ================= */
+        function clearCart() {
+            cart = [];
+            localStorage.removeItem("cart");
+            renderCart();
+        }
+
+        function saveCart() {
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+        }
+
+        function goBack() {
+            window.location.href = "index.html";
+        }
+
+        /* ================= INIT ================= */
+        renderCart();
+    </script>
+
+</body>
+
+</html>

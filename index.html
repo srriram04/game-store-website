@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy and Sell games and Consoles</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./Images/Logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <section id="login-form" class="login-form">
+        <div class="Container" id="Container">
+
+            <!-- SIGN UP -->
+            <div class="form-container sign-up">
+                <form id="signupForm">
+                    <h1>Create Account</h1>
+
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-google"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+
+                    <span>Use your email for registration</span>
+                    <input type="text" id="signupName" placeholder="Name">
+                    <input type="email" id="signupEmail" placeholder="Email">
+                    <input type="password" id="signupPassword" placeholder="Password">
+                    <button type="submit">Sign Up</button>
+                    <p id="signupMsg" style="color:#00FF7F;font-size:13px;"></p>
+
+                </form>
+            </div>
+
+            <!-- SIGN IN -->
+            <div class="form-container sign-in">
+                <form id="signinForm">
+                    <h1>Sign In</h1>
+
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-google"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-github"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+
+                    <span>Use your email and password</span>
+                    <input type="email" id="signinEmail" placeholder="Email">
+                    <input type="password" id="signinPassword" placeholder="Password">
+                    <button type="submit">Sign In</button>
+                    <p id="signinMsg" style="color:#FF4C4C;font-size:13px;"></p>
+                </form>
+            </div>
+
+            <!-- TOGGLE -->
+            <div class="toggle-container">
+                <div class="toggle">
+                    <div class="toggle-panel toggle-left">
+                        <h1>Welcome Back!</h1>
+                        <p>Login with your details</p>
+                        <button class="hidden" id="login">Sign In</button>
+                    </div>
+                    <div class="toggle-panel toggle-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Register to start your journey</p>
+                        <button class="hidden" id="Register">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="website" class="website" style="display: none;">
+        <nav class="navbar">
+            <img src="Images/Logo.jpg" alt="logo" width="100px" height="100px">
+            <a href="#Home">Home</a>
+            <a href="#Buy Games & Sell games">Games</a>
+            <a href="#Console">Console</a>
+            <a href="#Accessories">Accessories</a>
+            <a id="About" href="#PC Components">PC Components</a>
+            <a id="Contact" href="#Contact">Contact</a>
+
+            <input type="search" id="searchInput" placeholder="Search here...">
+            <button id="searchBtn" class="Search btn">Search</button> 
+
+
+            <button onclick="goToCart()" class="cart-btn">
+                <i class="fa-solid fa-cart-plus"></i>
+                <span id="cartCount" class="cart-badge">0</span>
+            </button>
+
+            <button onclick="logout()">Logout</button>
+        </nav>
+
+        <!-- Home section -->
+        <section id="Home" class="Home">
+            <div class="hero">
+
+                <h1>
+                    <span style="color:rgb(0, 208, 255)">
+                        Buy & Sell Pre-Owned Video Games and Consoles
+                    </span>
+                </h1>
+
+                <p>
+                    Find amazing deals on your favorite PlayStation, Xbox & PC titles.
+                    Trade your used games easily and safely.
+                </p>
+
+                <!-- SLIDER -->
+                <div class="hero-slider">
+                    <img src="./Images/Home page img2.webp" class="slide active">
+                    <img src="./Images/Home page img6.jpg" class="slide">
+                    <img src="./Images/Home page img 1.webp" class="slide">
+                    <img src="./Images/Home page img3.webp" class="slide">
+                    <img src="./Images/Home page img5.jpeg" class="slide">
+                    <img src="./Images/Home page img 4.jpg" class="slide">
+
+                    <button class="slide-btn left" onclick="prevSlide()">❮</button>
+                    <button class="slide-btn right" onclick="nextSlide()">❯</button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Buy and sell games -->
+        <section id="Buy Games & Sell games" class="Buy-games">
+            <h1><span style="color:rgb(0, 208, 255)">Buy & Sell Pre-Owned Video Games</span></h1>
+
+            <!-- Left Arrow -->
+            <button class="arrow left-arrow" id="leftArrow">❮</button>
+
+            <!-- Game Cards -->
+            <div class="game-content" id="gameList">
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Spider-Man: Miles Morales</h3>
+                    <img src="./Images/Spiderman.jpg" class="game-img">
+                    <p>Platform: PS5</p>
+                    <p class="price">₹1,999</p>
+                    <button class="main-btn add-to-cart" data-name="Spider-Man: Miles Morales" data-price="1999"
+                        data-image="./Images/Spiderman.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Red Dead Redemption 2</h3>
+                    <img src="./Images/RDR2.jpg" class="game-img">
+                    <p>Platform: PS4</p>
+                    <p class="price">₹2,499</p>
+                    <button class="main-btn add-to-cart" data-name="Red Dead Redemption 2" data-price="2499"
+                        data-image="./Images/RDR2.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">WWE 2K22</h3>
+                    <img src="./Images/wwe 2k22.jpg" class="game-img">
+                    <p>Platform: XBOX</p>
+                    <p class="price">₹1,499</p>
+                    <button class="main-btn add-to-cart" data-name="WWE 2K22" data-price="1499"
+                        data-image="./Images/wwe 2k22.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Uncharted: Legacy of Thieves</h3>
+                    <img src="./Images/Uncharted legacy of thieves.webp" class="game-img">
+                    <p>Platform: PS5</p>
+                    <p class="price">₹1,599</p>
+                    <button class="main-btn add-to-cart" data-name="Uncharted: Legacy of Thieves" data-price="1599"
+                        data-image="./Images/Uncharted legacy of thieves.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">FIFA 26</h3>
+                    <img src="./Images/EA-Sports-FC-26-for-PS5.jpg" class="game-img">
+                    <p>Platform: PS5</p>
+                    <p class="price">₹3,799</p>
+                    <button class="main-btn add-to-cart" data-name="FIFA 26" data-price="3799"
+                        data-image="./Images/EA-Sports-FC-26-for-PS5.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Black Myth Wukong</h3>
+                    <img src="./Images/black myth wukong.jpg" class="game-img">
+                    <p>Platform: XBOX</p>
+                    <p class="price">₹3,499</p>
+                    <button class="main-btn add-to-cart" data-name="Black Myth Wukong" data-price="3499"
+                        data-image="./Images/black myth wukong.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Call of Duty: Black Ops 7</h3>
+                    <img src="./Images/Call of duty black ops 7.png" class="game-img">
+                    <p>Platform: PS5</p>
+                    <p class="price">₹1,699</p>
+                    <button class="main-btn add-to-cart" data-name="Call of Duty: Black Ops 7" data-price="1699"
+                        data-image="./Images/Call of duty black ops 7.png">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">God of War: Ragnarok</h3>
+                    <img src="./Images/God of war Ragnark.jpg" class="game-img">
+                    <p>Platform: PS5</p>
+                    <p class="price">₹2,999</p>
+                    <button class="main-btn add-to-cart" data-name="God of War: Ragnarok" data-price="2999"
+                        data-image="./Images/God of war Ragnark.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Far Cry: New Dawn</h3>
+                    <img src="./Images/Farcry new dawn.webp" class="game-img">
+                    <p>Platform: XBOX</p>
+                    <p class="price">₹1,999</p>
+                    <button class="main-btn add-to-cart" data-name="Far Cry: New Dawn" data-price="1999"
+                        data-image="./Images/Farcry new dawn.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">WWE 2K25</h3>
+                    <img src="./Images/WWE2k25.jpg" class="game-img">
+                    <p>Platform: XBOX</p>
+                    <p class="price">₹3,999</p>
+                    <button class="main-btn add-to-cart" data-name="WWE 2K25" data-price="3999"
+                        data-image="./Images/WWE2k25.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Jumanji</h3>
+                    <img src="./Images/Jumanji.jpg" class="game-img">
+                    <p>Platform: XBOX</p>
+                    <p class="price">₹2,199</p>
+                    <button class="main-btn add-to-cart" data-name="Jumanji" data-price="2199"
+                        data-image="./Images/Jumanji.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Terminator Surviors</h3>
+                    <img src="./Images/Terminator.jpg" class="game-img">
+                    <p>Platform: XBOX</p>
+                    <p class="price">₹3,199</p>
+                    <button class="main-btn add-to-cart" data-name="Terminator Surviors" data-price="3199"
+                        data-image="./Images/Terminator.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Spiderman 2</h3>
+                    <img src="./Images/Spiderman 2.webp" class="game-img">
+                    <p>Platform: PS5</p>
+                    <p class="price">₹1,799</p>
+                    <button class="main-btn add-to-cart" data-name="Spiderman 2" data-price="1799"
+                        data-image="./Images/Spiderman 2.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Avatar fronteirs of pandora</h3>
+                    <img src="./Images/Avatar fronteirs of pandora.avif" class="game-img">
+                    <p>Platform: PS5</p>
+                    <p class="price">₹2,799</p>
+                    <button class="main-btn add-to-cart" data-name="Avatar fronteirs of pandora" data-price="2799"
+                        data-image="./Images/Avatar fronteirs of pandora.avif">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Uncharted-4</h3>
+                    <img src="./Images/uncharted-4-ps4-.webp" class="game-img">
+                    <p>Platform: PS4</p>
+                    <p class="price">₹2,499</p>
+                    <button class="main-btn add-to-cart" data-name="Uncharted-4" data-price="2499"
+                        data-image="./Images/uncharted-4-ps4-.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">Doom:The Dark ages</h3>
+                    <img src="./Images/Doom the Dark ages.avif" class="game-img">
+                    <p>Platform: PS5</p>
+                    <p class="price">₹1,699</p>
+                    <button class="main-btn add-to-cart" data-name="Doom:The Dark ages" data-price="1699"
+                        data-image="./Images/Doom the Dark ages.avif">
+                        Add to Cart
+                    </button>
+                </div>
+
+
+                <div class="card">
+                    <h3 style="color:rgb(0, 208, 255)">GTA V</h3>
+                    <img src="./Images/GTA V.jpg" class="game-img">
+                    <p>Platform: PS4</p>
+                    <p class="price">₹1,499</p>
+                    <button class="main-btn add-to-cart" data-name="GTA V" data-price="1499" data-image="./Images/GTA V.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Right Arrow -->
+            <button class="arrow right-arrow" id="rightArrow">❯</button>
+        </section>
+
+        <section id="Console" class="Console">
+            <h1><span style="color:rgb(0, 208, 255)">Buy & Sell Pre-Owned Consoles</span></h1>
+            <!-- Left Arrow -->
+            <button class="arrow left-arrow" id="leftArrow1">❮</button>
+            <div class="Consoles_content" id="Consoles_content">
+                <div class="Console-card" id="Console-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS5</h3>
+                    <img src="./Images/PS5.jpg" class="console-img">
+                    <p class="price">₹40,000</p>
+                    <button class="main-btn add-to-cart" data-name="PS5" data-price="40000" data-image="./Images/PS5.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Console-card" id="Console-card">
+                    <h3 style="color:rgb(0, 208, 255)">Xbox Series X</h3>
+                    <img src="./Images/Xbox series X.png" class="console-img">
+                    <p class="price">₹35,000</p>
+                    <button class="main-btn add-to-cart" data-name="Xbox Series X" data-price="35000"
+                        data-image="./Images/Xbox series X.png">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Console-card" id="Console-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS4</h3>
+                    <img src="./Images/PS4.jpg" class="console-img">
+                    <p class="price">₹20,000</p>
+                    <button class="main-btn add-to-cart" data-name="PS4" data-price="10000" data-image="./Images/PS4.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Console-card" id="Console-card">
+                    <h3 style="color:rgb(0, 208, 255)">XBOX Series S</h3>
+                    <img src="./Images/Xbox series S.jpg" class="console-img">
+                    <p class="price">₹30,000</p>
+                    <button class="main-btn add-to-cart" data-name="XBOX Series S" data-price="30000"
+                        data-image="./Images/Xbox series S.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Console-card" id="Console-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS3</h3>
+                    <img src="./Images/PS3.jpg" class="console-img">
+                    <p class="price">₹5,000</p>
+                    <button class="main-btn add-to-cart" data-name="PS3" data-price="5000" data-image="./Images/PS3.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Console-card" id="Console-card">
+                    <h3 style="color:rgb(0, 208, 255)">XBOX ONE</h3>
+                    <img src="./Images/Xbox One.jpg" class="console-img">
+                    <p class="price">₹4000</p>
+                    <button class="main-btn add-to-cart" data-name="XBOX ONE" data-price="4000"
+                        data-image="./Images/Xbox One.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Console-card" id="Console-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS2</h3>
+                    <img src="./Images/PS2.jpg" class="console-img">
+                    <p class="price">₹2,000</p>
+                    <button class="main-btn add-to-cart" data-name="PS2" data-price="2000" data-image="./Images/PS2.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Console-card" id="Console-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS1</h3>
+                    <img src="./Images/PS1.jpg" class="console-img">
+                    <p class="price">₹999</p>
+                    <button class="main-btn add-to-cart" data-name="PS1" data-price="999" data-image="./Images/PS1.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+
+            </div>
+            <!-- Right Arrow -->
+            <button class="arrow right-arrow" id="rightArrow1">❯</button>
+        </section>
+
+        <!-- Accessories -->
+        <section id="Accessories" class="Accessories">
+            <h1><span style="color:rgb(0, 208, 255)">Buy & Sell Pre-Owned Accessories</span></h1>
+            <!-- Left Arrow -->
+            <button class="arrow left-arrow" id="leftArrow2">❮</button>
+            <div class="Accessories_content" id="Accessories_content">
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS5 Controller White</h3>
+                    <img src="./Images/PS5 controller white" class="Accessories-img">
+                    <p class="price">₹4,999</p>
+                    <button class="main-btn add-to-cart" data-name="PS5 Controller White" data-price="4999"
+                        data-image="./Images/PS5 controller white">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">XBOX Controller Venom Series X</h3>
+                    <img src="./Images/Xbox controller venom.jpg" class="Accessories-img">
+                    <p class="price">₹4,499</p>
+                    <button class="main-btn add-to-cart" data-name="XBOX Controller Venom" data-price="4499"
+                        data-image="./Images/Xbox controller venom.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">Ant Esports KeyBoard</h3>
+                    <img src="./Images/Ant Esports KeyBoard.png" class="Accessories-img">
+                    <p class="price">₹1,199</p>
+                    <button class="main-btn add-to-cart" data-name="Ant Esports KeyBoard" data-price="1199"
+                        data-image="./Images/Ant Esports KeyBoard.png">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">Ant Esports Mouse</h3>
+                    <img src="./Images/Ant esports Mouse.png" class="Accessories-img">
+                    <p class="price">₹699</p>
+                    <button class="main-btn add-to-cart" data-name="Ant Esports Mouse" data-price="699"
+                        data-image="./Images/Ant esports Mouse.png">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">Razer HeadPhones</h3>
+                    <img src="./Images/Razer Headphones.webp" class="Accessories-img">
+                    <p class="price">₹1000</p>
+                    <button class="main-btn add-to-cart" data-name="Boat HeadPhones" data-price="1000"
+                        data-image="./Images/Razer Headphones.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">XBOX Controller Black Series X</h3>
+                    <img src="./Images/Xbox controller.jpg" class="Accessories-img">
+                    <p class="price">₹4,499</p>
+                    <button class="main-btn add-to-cart" data-name="XBOX Controller Black Series X" data-price="4499"
+                        data-image="./Images/Xbox controller.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS5 Controller Spiderman</h3>
+                    <img src="./Images/PS5 controller spiderman.jpg" class="Accessories-img">
+                    <p class="price">₹4,999</p>
+                    <button class="main-btn add-to-cart" data-name="PS5 Controller Spiderman" data-price="4999"
+                        data-image="./Images/PS5 controller spiderman.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS4 Controller Red</h3>
+                    <img src="./Images/PS4 Controller red.webp" class="Accessories-img">
+                    <p class="price">₹2,999</p>
+                    <button class="main-btn add-to-cart" data-name="PS4 Controller Red" data-price="2999"
+                        data-image="./Images/PS4 Controller red.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">XBOX Controller Black Series S</h3>
+                    <img src="./Images/Xbox Controller series s.jpg" class="Accessories-img">
+                    <p class="price">₹4,499</p>
+                    <button class="main-btn add-to-cart" data-name="XBOX Controller Black Series S" data-price="4499"
+                        data-image="./Images/Xbox Controller series s.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS5 Controller Ligthing</h3>
+                    <img src="./Images/PS4 Controller thunder.jpg" class="Accessories-img">
+                    <p class="price">₹4,999</p>
+                    <button class="main-btn add-to-cart" data-name="PS5 Controller Ligthing" data-price="3599"
+                        data-image="./Images/PS4 Controller thunder.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS5 Controller purple</h3>
+                    <img src="./Images/PS5 controller purple.webp" class="Accessories-img">
+                    <p class="price">₹4,999</p>
+                    <button class="main-btn add-to-cart" data-name="PS5 Controller purple" data-price="4999"
+                        data-image="./Images/PS5 controller purple.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS5 Controller Fortnite</h3>
+                    <img src="./Images/PS5 Controller fortnite.jpg" class="Accessories-img">
+                    <p class="price">₹4,999</p>
+                    <button class="main-btn add-to-cart" data-name="PS5 Controller Fortnite" data-price="4999"
+                        data-image="./Images/PS5 Controller fortnite.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS5 Controller Spiderman DualSense</h3>
+                    <img src="./Images/PS5 Controller Spiderman dualsense.webp" class="Accessories-img">
+                    <p class="price">₹4,999</p>
+                    <button class="main-btn add-to-cart" data-name="PS5 Controller Spiderman DualSense"
+                        data-price="4999" data-image="./Images/PS5 Controller Spiderman dualsense.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS3 Controller Black</h3>
+                    <img src="./Images/PS3 Controller black.jpg" class="Accessories-img">
+                    <p class="price">₹1,999</p>
+                    <button class="main-btn add-to-cart" data-name="PS3 Controller Black" data-price="1999"
+                        data-image="./Images/PS3 Controller black.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS2 Controller Black</h3>
+                    <img src="./Images/PS2 controller.webp" class="Accessories-img">
+                    <p class="price">₹1,199</p>
+                    <button class="main-btn add-to-cart" data-name="PS2 Controller Black" data-price="899"
+                        data-image="./Images/PS2 controller.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">PS1 Controller </h3>
+                    <img src="./Images/PS1 Controller.avif" class="Accessories-img">
+                    <p class="price">₹499</p>
+                    <button class="main-btn add-to-cart" data-name="PS1 Controller" data-price="499"
+                        data-image="./Images/PS1 Controller.avif">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">Nova Wired Gaming Mouse </h3>
+                    <img src="./Images/Nova wired gaming mouse.jpg" class="Accessories-img">
+                    <p class="price">₹499</p>
+                    <button class="main-btn add-to-cart" data-name="Nova Wired Gaming Mouse" data-price="499"
+                        data-image="./Images/Nova wired gaming mouse.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">Logitech Mouse </h3>
+                    <img src="./Images/Logitech mouse.webp" class="Accessories-img">
+                    <p class="price">₹799</p>
+                    <button class="main-btn add-to-cart" data-name="Logitech Mouse " data-price="799"
+                        data-image="./Images/Logitech mouse.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">Legion Mouse</h3>
+                    <img src="./Images/Legion Mouse.avif" class="Accessories-img">
+                    <p class="price">₹699</p>
+                    <button class="main-btn add-to-cart" data-name="Legion Mouse" data-price="599"
+                        data-image="./Images/Legion Mouse.avif">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">Zeb-Optimus KeyBoard</h3>
+                    <img src="./Images/Zeb-Optimus KeyBoard.webp" class="Accessories-img">
+                    <p class="price">₹999</p>
+                    <button class="main-btn add-to-cart" data-name="Zeb-Optimus KeyBoard" data-price="999"
+                        data-image="./Images/Zeb-Optimus KeyBoard.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">Zebronics KeyBoard</h3>
+                    <img src="./Images/Zebronics Keyboard.webp" class="Accessories-img">
+                    <p class="price">₹1,299</p>
+                    <button class="main-btn add-to-cart" data-name="Zebronics KeyBoard" data-price="1299"
+                        data-image="./Images/Zebronics Keyboard.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">Cosmic Byte HeadPhones</h3>
+                    <img src="./Images/Cosmic Byte HeadPhones.jpg" class="Accessories-img">
+                    <p class="price">₹899</p>
+                    <button class="main-btn add-to-cart" data-name="Zebronics KeyBoard" data-price="899"
+                        data-image="./Images/Cosmic Byte HeadPhones.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">JBL HeadPhones</h3>
+                    <img src="./Images/JBL Headphones.avif" class="Accessories-img">
+                    <p class="price">₹699</p>
+                    <button class="main-btn add-to-cart" data-name="JBL HeadPhones" data-price="699"
+                        data-image="./Images/JBL Headphones.avif">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="Accessories-card" id="Accessories-card">
+                    <h3 style="color:rgb(0, 208, 255)">Boat HeadPhones</h3>
+                    <img src="./Images/Boat Headphones.webp" class="Accessories-img">
+                    <p class="price">₹1,199</p>
+                    <button class="main-btn add-to-cart" data-name="Boat HeadPhones" data-price="1199"
+                        data-image="./Images/Boat Headphones.webp">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+
+
+
+            <!-- Right Arrow -->
+            <button class="arrow right-arrow" id="rightArrow2">❯</button>
+        </section>
+        
+        <Section id="PC Components" class="PC_Components">
+            <h1><span style="color:rgb(0, 208, 255)">Buy & Sell Pre-Owned PC Components</span></h1>
+
+            <!-- Left Arrow -->
+            <button class="arrow left-arrow" id="leftArrow3">❮</button>
+
+            <!-- PC Cards -->
+            <div class="PC-List" id="PCList">
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">RTX 4060 Graphics Card</h3>
+                    <img src="./Images/RTX 4060 graphics card.avif" class="PC-img">
+                    <p class="price">₹31,199</p>
+                    <button class="main-btn add-to-cart" data-name="RTX 4060 Graphics Card" data-price="31199"
+                        data-image="./Images/RTX 4060 graphics card.avif">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">GTX 1080 Graphics Card</h3>
+                    <img src="./Images/GTX 1080 Graphics Card.webp" class="PC-img">
+                    <p class="price">₹15,199</p>
+                    <button class="main-btn add-to-cart" data-name="GTX 1080 Graphics Card" data-price="15199"
+                        data-image="./Images/GTX 1080 Graphics Card.webp">
+                        Add to Cart
+                    </button>
+                </div>  
+                
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">RTX 5060 Graphics Card</h3>
+                    <img src="./Images/RTX 5060 Graphics card.jpg" class="PC-img">
+                    <p class="price">₹40,000</p>
+                    <button class="main-btn add-to-cart" data-name="RTX 5060 Graphics Card" data-price="40000"
+                        data-image="./Images/RTX 5060 Graphics card.jpg">
+                        Add to Cart
+                    </button>
+                </div>    
+                
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">Amd Radeon RX7600 Graphics Card</h3>
+                    <img src="./Images/AMD Radeon RX7600.jpg" class="PC-img">
+                    <p class="price">27,000</p>
+                    <button class="main-btn add-to-cart" data-name="Amd Radeon RX7600 Graphics Card" data-price="27000"
+                        data-image="./Images/AMD Radeon RX7600.jpg">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">Amd Radeon RX6600 Graphics Card</h3>
+                    <img src="./Images/Amd Radeon RX6600.webp" class="PC-img">
+                    <p class="price">₹30,000</p>
+                    <button class="main-btn add-to-cart" data-name="Amd Radeon RX6600 Graphics Card" data-price="30000"
+                        data-image="./Images/Amd Radeon RX6600.webp">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">Samsung Odssey G3 Monitor</h3>
+                    <img src="./Images/Samsung Odssey G3.jpg" class="PC-img">
+                    <p class="price">₹20,000</p>
+                    <button class="main-btn add-to-cart" data-name="Samsung Odssey G3 Monitor" data-price="20000"
+                        data-image="./Images/Samsung Odssey G3.jpg">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">Asus Tuf Gaming Monitor</h3>
+                    <img src="./Images/Asus tuf Gaming.webp" class="PC-img">
+                    <p class="price">₹15,000</p>
+                    <button class="main-btn add-to-cart" data-name="Asus Tuf Gaming Monitor" data-price="15000"
+                        data-image="./Images/Asus tuf Gaming.webp">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">MSI Gaming Monitor</h3>
+                    <img src="./Images/Msi Gaming-Monitor-1.webp" class="PC-img">
+                    <p class="price">₹17,000</p>
+                    <button class="main-btn add-to-cart" data-name="MSI Gaming Monitor" data-price="17000"
+                        data-image="./Images/Msi Gaming-Monitor-1.webp">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">NVIDIA Gaming Monitor</h3>
+                    <img src="./Images/NVIDIA Monitor.png" class="PC-img">
+                    <p class="price">₹25,000</p>
+                    <button class="main-btn add-to-cart" data-name="NVIDIA Gaming Monitor" data-price="25000"
+                        data-image="./Images/NVIDIA Monitor.png">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">Intel Core i9 Processor</h3>
+                    <img src="./Images/Intel_Core_i9-.jpg" class="PC-img">
+                    <p class="price">₹10,000</p>
+                    <button class="main-btn add-to-cart" data-name="Intel Core i9 Processor" data-price="10000"
+                        data-image="./Images/Intel_Core_i9-.jpg">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">Intel Core i5 Processor</h3>
+                    <img src="./Images/Intel i5.jpg" class="PC-img">
+                    <p class="price">₹5,500</p>
+                    <button class="main-btn add-to-cart" data-name="Intel Core i5 Processor" data-price="5500"
+                        data-image="./Images/Intel i5.jpg">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">Intel Core i7 Processor</h3>
+                    <img src="./Images/Intel i7.jpg" class="PC-img">
+                    <p class="price">₹8,500</p>
+                    <button class="main-btn add-to-cart" data-name="Intel Core i7 Processor" data-price="8500"
+                        data-image="./Images/Intel i7.jpg">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">Intel Core i3 Processor</h3>
+                    <img src="./Images/Intel i3.jpg" class="PC-img">
+                    <p class="price">₹3,500</p>
+                    <button class="main-btn add-to-cart" data-name="Intel Core i3 Processor" data-price="3500"
+                        data-image="./Images/Intel i3.jpg">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">AMD RYZEN 5 Processor</h3>
+                    <img src="./Images/Amd ryzen 5.webp" class="PC-img">
+                    <p class="price">₹5,500</p>
+                    <button class="main-btn add-to-cart" data-name="AMD RYZEN 5 Processor" data-price="5500"
+                        data-image="./Images/Amd ryzen 5.webp">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">AMD RYZEN 3 Processor</h3>
+                    <img src="./Images/AMD Ryzen 3.jpg" class="PC-img">
+                    <p class="price">₹3,500</p>
+                    <button class="main-btn add-to-cart" data-name="AMD RYZEN 3 Processor" data-price="3500"
+                        data-image="./Images/AMD Ryzen 3.jpg">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">AMD RYZEN 7 Processor</h3>
+                    <img src="./Images/AMD-Ryzen-7.webp" class="PC-img">
+                    <p class="price">₹8,500</p>
+                    <button class="main-btn add-to-cart" data-name="AMD RYZEN 7 Processor" data-price="8500"
+                        data-image="./Images/AMD-Ryzen-7.webp">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">AMD RYZEN 9 Processor</h3>
+                    <img src="./Images/AMD-Ryzen 9.jpg" class="PC-img">
+                    <p class="price">₹10,000</p>
+                    <button class="main-btn add-to-cart" data-name="AMD RYZEN 9 Processor" data-price="10000"
+                        data-image="./Images/AMD-Ryzen 9.jpg">
+                        Add to Cart
+                    </button>
+                </div> 
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">Zebronics Phantom Cabinet</h3>
+                    <img src="./Images/Zebronics phantom cabinet.webp" class="PC-img">
+                    <p class="price">₹20,000</p>
+                    <button class="main-btn add-to-cart" data-name="Zebronics Phantom Cabinet" data-price="20000"
+                        data-image="./Images/Zebronics phantom cabinet.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">Ant Esports Cabinet</h3>
+                    <img src="./Images/Ant Esports Cabinet.webp" class="PC-img">
+                    <p class="price">₹15,000</p>
+                    <button class="main-btn add-to-cart" data-name="Ant Esports Cabinet" data-price="15000"
+                        data-image="./Images/Ant Esports Cabinet.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">MSI Cabinet</h3>
+                    <img src="./Images/MSI Gaming Cabinet.webp" class="PC-img">
+                    <p class="price">₹12,000</p>
+                    <button class="main-btn add-to-cart" data-name="MSI Cabinet" data-price="12000"
+                        data-image="./Images/MSI Gaming Cabinet.webp">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="PC-card">
+                    <h3 style="color:rgb(0, 208, 255)">Gigabyte Cabinet</h3>
+                    <img src="./Images/Gigabyte C500.jpg" class="PC-img">
+                    <p class="price">₹10,000</p>
+                    <button class="main-btn add-to-cart" data-name="Gigabyte Cabinet" data-price="10000"
+                        data-image="./Images/Gigabyte C500.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>   
+             <!-- Right Arrow -->
+            <button class="arrow right-arrow" id="rightArrow3">❯</button>
+        </Section>
+
+        <!-- CONTACT SECTION -->
+<section id="Contact" class="contact-section">
+    <h1>Contact Us</h1>
+
+    <div class="contact-container">
+
+        <div class="contact-info">
+            <h3>Get in Touch</h3>
+            <p>Email: support@gametrade.com</p>
+            <p>Phone: +91 98765 43210</p>
+            <p>Location: Chennai, India</p>
+        </div>  
+
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="4"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+    </div>
+</section>
+
+    </section>
+
+
+    <!-- CART POPUP (ADD HERE) -->
+    <div id="cartPopup" style="
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    z-index:999;
+    justify-content:center;
+    align-items:center;
+">
+        <div style="
+        background:#1E1E1E;
+        padding:20px;
+        width:350px;
+        border-radius:15px;
+        color:white;
+    ">
+            <h3 style="text-align:center;color:#00BFFF;">Your Cart 🛒</h3>
+
+            <div id="cartItems"></div>
+            <p id="cartTotal"></p>
+
+            <button class="main-btn" onclick="closeCart()">Close</button>
+        </div>
+    </div>
+    <!-- CART POPUP END -->
+
+
+
+    <script src="./index.js">
+
+    </script>
+
+</body>
+
+</html>
